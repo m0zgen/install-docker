@@ -58,8 +58,7 @@ aptUpdate() {
     sudo apt update
 }
 
-instalDebian() {
-
+pushDocker() {
     aptUpdate
     sudo apt -y install ca-certificates curl gnupg lsb-release
     sudo mkdir -p /etc/apt/keyrings
@@ -72,6 +71,19 @@ instalDebian() {
 
     echo "Done!"
     exit 0
+}
+
+instalDebian() {
+
+    which docker > /dev/null;isPackage=$?
+
+    if [[ "${isPackage}" != 0 ]]; then
+        pushDocker
+    else
+        echo "Docker already installed. Exit. Bye."
+        exit 1
+    fi
+
 }
 
 checkDistro
