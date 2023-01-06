@@ -79,7 +79,7 @@ pushDocker() {
     echo "Install Docker packages..."
     sudo apt -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-    echo -e "\nDone!"
+    echo -e "\nDone!\n"
     exit 0
 }
 
