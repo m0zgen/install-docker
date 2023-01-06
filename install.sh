@@ -85,9 +85,9 @@ pushDocker() {
 
 instalDebian() {
 
-    which docker > /dev/null;isPackage=$?
+    which docker > /dev/null 2>&1
 
-    if [[ "${isPackage}" != 0 ]]; then
+    if [[ $? != 0 ]]; then
         pushDocker
     else
         echo "Docker already installed. Exit. Bye."
