@@ -79,6 +79,10 @@ pushDocker() {
     echo "Install Docker packages..."
     sudo apt -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
+    echo "Enable Docker services..."
+    sudo systemctl enable docker.service
+    sudo systemctl enable containerd.service
+
     echo -e "\nDone!\n"
     exit 0
 }
