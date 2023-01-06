@@ -85,14 +85,14 @@ pushDocker() {
 
 instalDebian() {
 
-    which docker > /dev/null 2>&1
-
-    if [[ $? != 0 ]]; then
+    if ! [ -x "$(command -v docker)" ]; then
+        echo "Docker installation process starting..."
         pushDocker
     else
         echo "Docker already installed. Exit. Bye."
         exit 1
     fi
+
 
 }
 
