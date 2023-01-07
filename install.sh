@@ -94,7 +94,7 @@ instalDebian() {
         pushDocker
     else
         echo "Docker already installed. Exit. Bye."
-        exit 1
+        exit 0
     fi
 
 
